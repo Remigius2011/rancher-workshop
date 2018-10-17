@@ -1,0 +1,12 @@
+
+attic/
+target/
+work/
+Thumbs.db
+.DS_Store
+*.class
+
+## ide settings (except run configurations)
+
+*.iml
+.idea/
