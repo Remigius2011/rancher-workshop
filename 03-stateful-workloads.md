@@ -93,7 +93,7 @@ see also:
 add db node
 -----------
 
-no we are ready to prepare launching a database server. as a first step, we add a slightly more powerful node than the worker nodes.
+now we are ready to prepare launching a database server. as a first step, we add a slightly more powerful node than the worker nodes.
 we perform the following steps:
 
 * on the cluster level, click `Nodes` and `Edit Cluster`
