@@ -61,8 +61,6 @@ see also:
 * https://kubernetes.io/docs/concepts/storage/volumes/
 * https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 
-https://hub.docker.com/r/dpage/pgadmin4/
-
 configuration
 -------------
 
