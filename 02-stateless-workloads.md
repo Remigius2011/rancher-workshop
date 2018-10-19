@@ -55,8 +55,8 @@ to make the hello world app visible, we add a port mapping by clicking on `Add P
 following parameters (from left to right):
 
 * **container port:** 80 - this is the port that is exposed by the container, i.e. the one on which the webapp itself listens
-* **protocol:** tcp (leave as is)
-* **as a:** change to `HostPort (On every node)` 
+* **protocol:** leave as `tcp`
+* **as a:** leave as `NodePort (On every node)`
 * **listening port:** leave as `Random` - this is the port through which we can access the webapp from the internet
 
 now click on the `Update` button at the bottom to upgrade the workload. after a short phase in `Updating` state we get
@@ -67,8 +67,9 @@ back to an `Active` workload, this time with a link below the workload's name:
 to see the webapp, just click on this link.
 
 ***note:*** as we have mapped a host port (even though a random one), we must use a non-default upgrade policy, namely
-`Rolling: stop old pods, then start new`. as we don't plan to upgrade the first workloads anyway, we can safely ignore this
-for now. in most cases it is not recommended to use mapped host ports anyway.
+`Rolling: stop old pods, then start new`. as we don't plan to upgrade the first workloads, we can safely ignore this
+for now. in most cases it is not recommended to use port mappings on workloads anyway - we will soon see how to handle this
+in a much better way.
 
 run nginx
 ---------
