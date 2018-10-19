@@ -21,7 +21,7 @@ upgrading workloads
 to upgrade an existing workload to a new version of an image (typically available
 as a new tag in an existing repo of the same registry), you only have to change the image
 tag. navigate to the list of workloads of the `Workshop` project, then enter the `Edit` menu
-via the three dot button. then change the current image tag (should be `fce3132d7d`) to `040a9f2bd9` in the
+via the three dot button. then change the current image tag (should be `950eeaed3c`) to `954218a9b9` in the
 image field and click the `Upgrade` button. now you can watch the replacement of existing
 pods by new ones created from the new image. after all is finished, the greeting will have
 changed to 'Howdy' instead of 'Hello'. note that - as we had three pods running

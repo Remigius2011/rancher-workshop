@@ -6,6 +6,15 @@ welcome to the workshop.
 
 ***note:*** using strictly lower case here is *intended*.
 
+important notice
+----------------
+
+the image for the demo webapp used in the workshop is now available as a
+[public image on docker hub](https://hub.docker.com/r/remigius65/webapp-hello-java/).
+it will still be available foir a few weeks on the private registry used during
+BaselOne, but ***please update the image in your rancher workload*** - otherwise future
+upgrades of any kind may fail.
+
 introduction
 ------------
 

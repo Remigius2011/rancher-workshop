@@ -116,21 +116,32 @@ navigate to the newly created project using the `Global` dropdown and click on `
 add a private registry
 ----------------------
 
-it is publicly available both on [github](https://github.com/Remigius2011/webapp-hello-java) and on [docker hub]().
-during the workshop, I have also deployed it on a private registry which we can now add to our rancher server.
+for the purposes of this workshop, creating a private registry is not strictly necessary, as the demo webapp
+is available as a [public image on docker hub](https://hub.docker.com/r/remigius65/webapp-hello-java/).
+the source is published on [github](https://github.com/Remigius2011/webapp-hello-java).
+
+if you have access to a private registry you can now add to your rancher server.
 on the `Resources` dropdown, click on `Registries`:
+
+***note:*** to run a provate registry without having to add it as *insecure regiytry* to each docker host, youmust have an official
+server certificate for it.
 
 ![registries](img/registries.png "registries")
 
 then on `Add Registry`, which displays the following page to enter the parameters:
 
-* **name:** `rancherws-hub`
-* **address:** select `Custom` and enter `rancherws-hub.descom-consulting.ch:443`
-* **credentials:** user: `rancher`, password will be given to workshop participants
+* **name:** enter a name for your registry
+* **address:** select `Custom` and enter host name and port of the registry (e.g. `myregistry.mydomain.com:443`)
+* **credentials:** enter your user id and password here
 
-![rancherws hub](img/rancherws-hub.png "rancherws hub")
+![private registry](img/private-registry.png "private registry")
 
 then click `Save` to save the registry parameters.
+
+see also:
+
+* https://docs.docker.com/registry/
+* https://hub.docker.com/_/registry/
 
 run the webapp
 --------------
@@ -139,7 +150,7 @@ now you are ready to deploy the demo webapp by clicking the `Deploy` button. ini
 
 * **name:** `demo-webapp`
 * **namespace:** verify it is `workshop` (the newly created one - must belong to the project in which the private registry was defined)
-* **image:** `rancherws-hub.descom-consulting.ch:443/demo:fce3132d7d`
+* **image:** `remigius65/webapp-hello-java:950eeaed3c`
 
 after clicking `Launch`, you see the usual status changes during the deployment until the workload reaches `Active` state.
 
