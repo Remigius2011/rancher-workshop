@@ -146,6 +146,12 @@ secondly it uses an explicit version tag instead of `:latest` to make sure the i
 btw, it is advisable to consult the available tags of the [rancher server image](https://hub.docker.com/r/rancher/rancher/tags/)
 regularly, in particular before installing a new rancher server.
 
+***note:*** when writing these instructions, the current stable version of rancher was `2.0.8` while the latest was `v2.1.0`. meanwhile,
+`v2.1.1` (or even a later version - see current [image tags](https://hub.docker.com/r/rancher/rancher/tags/)) is stable. if you like to
+start out with the latest stable version, you can directly launch a `v2.1.1` - change the container name accordingly.
+however, if youn like to work though the rancher upgrade in the maintenance chapter, start with an earlier version and upgrade
+it subsequently according to the instructions.
+
 see also:
 
 * https://rancher.com/docs/rancher/v2.x/en/quick-start-guide/deployment/quickstart-manual-setup/#2-install-rancher

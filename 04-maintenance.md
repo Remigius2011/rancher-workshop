@@ -85,10 +85,10 @@ this leads to the following shell commands to be executed on the docker host on 
 $ docker stop rsv208
 $ docker create --volumes-from rsv208 --name rancher-data rancher/rancher:v2.0.8
 $ docker run --volumes-from rancher-data -v $PWD:/backup alpine tar zcvf /backup/rancher-data-backup-2.0.8-2018-10-17.tar.gz /var/lib/rancher
-$ docker run -d --name rsv210 --volumes-from rancher-data --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher:v2.1.0
+$ docker run -d --name rsv211 --volumes-from rancher-data --restart=unless-stopped -p 80:80 -p 443:443 rancher/rancher:v2.1.1
 ```
 
-then to remove the old rancher container
+then to remove the stopped old rancher container
 
 ```
 $ docker rm rsv208

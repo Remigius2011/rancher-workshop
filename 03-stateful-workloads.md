@@ -74,7 +74,7 @@ of a pod.
 
 both configmaps and secrets can be made available in rancher for entire projects or restricted to a namespace.
 
-environment variables can also explicitly be specified when creating a workload. when creating a sete of environment values,
+environment variables can also explicitly be specified when creating a workload. when creating a set of environment values,
 you can paste a multiline text fragment containing all `name=value` pairs in one operation, e.g.:
 
 ```
@@ -210,6 +210,10 @@ of the catalog app entry. once the shell is opened, just enter `psql` (as you ar
 ![psql](img/psql.png "psql")
 
 obviously, other tools like `pg_dump` and `pg_restore` are also available, but `wget` and `curl` are missing.
+
+see also:
+
+* https://github.com/helm/charts/tree/master/stable/postgresql
 
 access the database
 -------------------
