@@ -17,9 +17,9 @@ it will still be available foir a few weeks on the private registry used during
 BaselOne, but ***please update the image in your rancher workload*** - otherwise future
 upgrades of any kind may fail.
 
-***warning:*** newer versions of the postgresql helm chart, namely 2.x and upwards, are completely different and have other
-parameters. the description given here only works for 1.0.0 and 0.x.x. See also [this github issue](https://github.com/helm/charts/pull/8004).
-also, upgrading your deployment to the latest version of the helm chart will kill your deployment - I haven't tested whether the rollback
+***warning:*** newer versions of the postgresql helm chart, namely 1.x and upwards, are completely different and have other
+parameters. the description given here only works for 0.x.x. See also [this github issue](https://github.com/helm/charts/pull/8004).
+also, upgrading your deployment to the latest version of the helm chart will kill your deployment - i haven't tested whether the rollback
 works in this case, but feel free to do so at your own risk (obviously test with non-production workloads first)
 
 introduction

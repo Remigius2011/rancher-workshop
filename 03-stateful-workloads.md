@@ -163,8 +163,8 @@ can be chosen arbitrarily but will be used when launching the postgresql server.
 deploy a postgresql database
 ----------------------------
 
-***warning:*** newer versions of the helm chart, namely 2.x and upwards, are completely different and have other
-parameters. the description given here only works for 1.0.0 and 0.x.x. See also [this github issue](https://github.com/helm/charts/pull/8004)
+***warning:*** newer versions of the helm chart, namely 1.x and upwards, are completely different and have other
+parameters. the description given here only works for 0.x.x. See also [this github issue](https://github.com/helm/charts/pull/8004)
 
 on the project level, click on the toolbar button `Catalog Apps`, then on `Launch` to see a list of available
 catalog apps. if you have already enabled `Helm Stable` (*pun warning:* a stable of helm apps...), there should be plenty
@@ -207,9 +207,54 @@ click on `Launch` to launch the server.
 the deployment of the helm chart generates some output on the log of the rancher server, e.g.:
 
 ```
+LAST DEPLOYED: Fri Oct 26 10:13:20 2018
+NAMESPACE: workshop
+STATUS: DEPLOYED
+
+RESOURCES:
+==> v1/ConfigMap
+NAME        DATA  AGE
+postgresql  0     2s
+
+==> v1/Service
+NAME        TYPE       CLUSTER-IP    EXTERNAL-IP  PORT(S)   AGE
+postgresql  ClusterIP  10.43.167.77  <none>       5432/TCP  2s
+
+==> v1beta1/Deployment
+NAME        DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
+postgresql  1        1        1           0          2s
+
+==> v1/Pod(related)
+NAME                         READY  STATUS             RESTARTS  AGE
+postgresql-7b4d5f75f5-2vbxz  0/1    ContainerCreating  0         2s
+
+
+NOTES:
+PostgreSQL can be accessed via port 5432 on the following DNS name from within your cluster:
+postgresql.workshop.svc.cluster.local
+If you have not already created the postgres admin secret:
+
+   kubectl create secret generic postgresql-password --namespace workshop --from-file=./postgres-password
+
+
+To connect to your database run the following command (using the env variable from above):
+
+   kubectl run --namespace workshop postgresql-client --restart=Never --rm --tty -i --image postgres \
+   --env "PGPASSWORD=$PGPASSWORD" \
+   --command -- psql -U postgres \
+   -h postgresql workshop
+
+
+
+To connect to your database directly from outside the K8s cluster:
+     PGHOST=127.0.0.1
+     PGPORT=5432
+
+     # Execute the following commands to route the connection:
+     export POD_NAME=$(kubectl get pods --namespace workshop -l "app=postgresql,release=postgresql" -o jsonpath="{.items[0].metadata.name}")
+     kubectl port-forward --namespace workshop $POD_NAME 5432:5432
 ```
  
-
 if all goes well, you will end up having a running postgresql server in your cluster.
 
 to prove that the server is functional, we can access it using `psql` in a shell opened on the `postgresql` pod.

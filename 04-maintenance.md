@@ -53,9 +53,9 @@ the three dot menu of the deployment. you can select from a list of recently dep
 upgrading postgresql
 --------------------
 
-***warning:*** newer versions of the helm chart, namely 2.x and upwards, are completely different and have other
-parameters. the description given here only works for 1.0.0 and 0.x.x. See also [this github issue](https://github.com/helm/charts/pull/8004)
-even though updating the helm chart version would be easy, don't go beyond version `1.0.0`, as this will
+***warning:*** newer versions of the helm chart, namely 1.x and upwards, are completely different and have other
+parameters. the description given here only works for 0.x.x. See also [this github issue](https://github.com/helm/charts/pull/8004)
+even though updating the helm chart version would be easy, don't go beyond version `0.19`, as this will
 break your existing deployment.
 
 postgresql was installed as a catalog app. upgrading it is as easy as upgrading a workload, but
