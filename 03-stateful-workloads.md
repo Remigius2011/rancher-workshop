@@ -163,10 +163,14 @@ can be chosen arbitrarily but will be used when launching the postgresql server.
 deploy a postgresql database
 ----------------------------
 
+***warning:*** newer versions of the helm chart, namely 2.x and upwards, are completely different and have other
+parameters. the description given here only works for 1.0.0 and 0.x.x. See also [this github issue](https://github.com/helm/charts/pull/8004)
+
 on the project level, click on the toolbar button `Catalog Apps`, then on `Launch` to see a list of available
 catalog apps. if you have already enabled `Helm Stable` (*pun warning:* a stable of helm apps...), there should be plenty
 of them. type `post` into the search field, which quickly restricts the list of visible entries. enter the entry
-for `postgresql (for Helm)` by clicking on `View Details`. on the appearing page, you can open the section
+for `postgresql (for Helm)` by clicking on `View Details`. on the appearing page, first select version `1.0.0`
+of the helm chart, as newer versions will not work as described here. you can open the section
 `Detailed Descriptions` to review the description of the helm chart. there is a list of available parameters,
 to which you can assign values (answers) by entering `name=value` pairs using the button `Add Answers`.
 
@@ -199,6 +203,12 @@ the result should now look as follows:
 ![postgresql](img/postgresql.png "postgresql")
 
 click on `Launch` to launch the server.
+
+the deployment of the helm chart generates some output on the log of the rancher server, e.g.:
+
+```
+```
+ 
 
 if all goes well, you will end up having a running postgresql server in your cluster.
 
