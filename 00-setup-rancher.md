@@ -63,12 +63,10 @@ for this purpose, to make this process repeatable. see also the repo for my talk
 [***infrastructure as code***](https://github.com/Remigius2011/iac) and its [slides](https://www.slideshare.net/remigius-stalder/iac-baselone17en).
 
 if you want to keep the results of your activities during this workshop for further experiments, you are welcome to create
-an account on digitalocean - aka ***do*** - right now. the link provided here is a referral link that gives you during the month of octiber 2018
-a credit of USD 100 valid for 60 days (and me eventually a kick-back of USD 25):
+an account on digitalocean - aka ***do*** - right now. the link provided here is a referral link that gives you
+a credit of USD 10 (and me eventually a kick-back of USD 25):
 
 [https://m.do.co/c/4d082f0c649f](https://m.do.co/c/4d082f0c649f)
-
-(conditions: "Everyone you refer gets $100 in credit over 60 days during [Hacktoberfest!](https://hacktoberfest.digitalocean.com/) Once they've spent $25 with us, you'll get $25.")
 
 once the do account is available, you can create a new droplet (this is the do term for a cloud vm) using the green "Create" button
 on the upper right with the following parameters:

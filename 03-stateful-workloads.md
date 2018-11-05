@@ -7,7 +7,7 @@ that can be used as a starting point for running complete web applications compo
 
 goals
 -----
- 
+
 in this section we are looking to achieve the following goals:
 
 * learn about k8s volumes to provide persistent storage
@@ -235,7 +235,7 @@ postgresql.workshop.svc.cluster.local
 If you have not already created the postgres admin secret:
 
    kubectl create secret generic postgresql-password --namespace workshop --from-file=./postgres-password
-
+ 
 
 To connect to your database run the following command (using the env variable from above):
 
@@ -254,7 +254,7 @@ To connect to your database directly from outside the K8s cluster:
      export POD_NAME=$(kubectl get pods --namespace workshop -l "app=postgresql,release=postgresql" -o jsonpath="{.items[0].metadata.name}")
      kubectl port-forward --namespace workshop $POD_NAME 5432:5432
 ```
- 
+
 if all goes well, you will end up having a running postgresql server in your cluster.
 
 to prove that the server is functional, we can access it using `psql` in a shell opened on the `postgresql` pod.

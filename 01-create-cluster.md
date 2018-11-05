@@ -109,3 +109,34 @@ during provisioning, rancher performs roughly the following tasks:
 this may take some time - take patience, even if you see red error messages on the cluster page.
 
 congratulations!
+
+a few notes on exoscale
+-----------------------
+
+exoscale is a swiss enterprise that runs some datacenters in switzerland and europe which are subject to swiss
+resp european data protection laws - if this is a concern. there follow some hints on using it.
+
+* ***creating clusters:*** creating a cluster is pretty much the same as for other infrastructure providers. only the
+  node driver has to be enabled first in `Global -> Node Drivers`, then it is available for creating new clusters.
+* ***security groups:*** a security group in exoscale is mainly a set of firewall rules applied to vm instances.
+  the node driver automatically creates a security group called `rancher-machine`, which usually should be usable
+  to create a cluster.
+* ***elastic (aka floating) ip addresses:*** in order to expose services on an ip address that is independent of the
+  set of vm instances it runs on, you may want to use a fixed ip address that can be assigned to any front-end
+  instance. while exoscale offers such a service, it is necessary to modify the instance's configuration in order
+  to create a corresponding network interface definition. if you use rancher to manage the vm instances, it is possible
+  to download ssh keys and connect to the machines using ssh to change the configuration manually, but this is not
+  recommended. so you can either provision the vm instances by other means ([iac](https://github.com/Remigius2011/iac),
+  e.g. using [terraform](https://www.terraform.io/) / [ansible](https://www.ansible.com/) or similar tools), or by
+  adding a external load balancer in front of the cluster which is manageg intependently of the cluster
+  (e.g. [HAProxy](http://www.haproxy.org/) / [nginx](http://www.haproxy.org/) or similar).
+* ***ssh keys:*** if you create an instance manually (e.g. to run a single node instance of rancher server) you will
+  initially have password access. however, this is only temporary, so it is advisable to add an ssh public key to
+  those vm instances asap.
+
+see also:
+
+* https://user-images.githubusercontent.com/15922119/44715367-ec993200-aab7-11e8-83f1-5c7dfefabbb9.png
+* https://community.exoscale.com/documentation/compute/eip/
+* https://forums.rancher.com/t/ingress-and-failover/12096
+* https://community.exoscale.com/documentation/compute/ssh-keypairs/

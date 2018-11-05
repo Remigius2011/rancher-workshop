@@ -11,6 +11,9 @@ important notes
 
 this section contains important information about updates of this documentation or related artifacts by third parties.
 
+***digitalocean credit:*** unfortunately, the generous 100$ initial credit promotion we could enjoy during october is gone.
+now the initial credit is back to 10$.
+
 ***warning:*** the image for the demo webapp used in the workshop is now available as a
 [public image on docker hub](https://hub.docker.com/r/remigius65/webapp-hello-java/).
 it will still be available foir a few weeks on the private registry used during
